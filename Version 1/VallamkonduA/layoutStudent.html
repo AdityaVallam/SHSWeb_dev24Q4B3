@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                display:flex;
+                flex-direction: column;
+            }
+            header{
+                flex:1;
+                max-height: 10vh;
+                background-color: blue;
+                display: flex;
+            }
+            #AK{
+                flex:1;
+            }
+            #AL{
+                flex:1;
+            }
+            #AR{
+                flex:1;
+            }
+            main{
+                flex:3;
+                max-height: 80vh;
+                display: flex;
+                background-color: aqua;
+            }
+            .flexLeft{
+                flex:1;
+                max-width: 10vw;
+                min-height: 27vh;
+                display:flex;
+                flex-direction: column;
+                background-color: blanchedalmond;
+            }
+            #AZ{
+                flex:1;
+                
+            }
+            #CA{
+                flex:1;
+                
+            }
+            #CO{
+                flex:1;
+                
+            }
+            #MN{
+                flex:3;
+                min-width: 80vw;
+            }
+            .flexRight{
+                flex:1;
+                max-width: 10vw;
+                min-height: 40vh;
+                display: flex;
+                flex-direction: column;
+                background-color:red;
+            }
+            #TX{
+                flex:1;
+            }
+            #VA{
+                flex:1;
+            }
+            footer{
+                flex:1;
+                max-height: 10vh;
+                background-color: blueviolet;
+                display: flex;
+            }
+            #MD{
+                min-width:100%;
+            }
+        </style>
+
+    </head>
+    
+    <body>
+        <header>
+            <img  class="flexTop" src="States/ak.png" id="AK"/>
+            <img  class="flexTop" src="States/al.png" id="AL"/>
+            <img  class="flexTop" src="States/ar.png" id="AR"/>
+        </header>
+        
+
+        <main>
+            
+            <aside>
+                <img class="flexLeft" src="States/az.png" id="AZ"/>
+                <img class="flexLeft" src="States/ca.png" id="CA"/>
+                <img class="flexLeft" src="States/co.png" id="CO"/>
+            </aside>
+
+            <article>
+                <img class="flexCenter" src="States/mn.png" id="MN"/>
+
+            </article>
+
+
+            <aside>
+                <img class="flexRight" src="States/tx.png" id="TX"/>
+                <img class="flexRight" src="States/va.png" id="VA">
+
+            </aside>
+
+        </main>
+
+        <footer>
+            <img class="flexFoot" src="States/md.png" id="MD"/>
+        </footer>
+
+
+    </body>
+</html>
