@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>High School JJ</title>
+        <style>
+            body{
+                display: flex;
+                flex-direction: column;
+            }
+            header{
+                background-color: purple;
+                flex:1;
+            }
+            #BIGHEAD{
+                text-align: center;
+            }
+            nav{
+                background-color:plum;
+                min-height: 5vh;
+                flex:1;
+            }
+            .nav{
+                text-align: center;
+                border: 5px solid black;
+            }
+            tr{
+                display: flex;
+            }
+            table{
+                min-width:100%;
+            }
+            #hs{
+                flex: 1;
+            }
+            #college{
+                flex: 1;
+                border-left: none;
+            }
+            #nfl{
+                flex: 1;
+                border-left: none;
+            }
+            main{
+                flex:10;
+                display: flex;
+            }
+            aside{
+                background-color: gold;
+                flex:1;
+                max-width: 10vw;
+            }
+            .home{
+                text-align: center;
+            }
+            #JJHS{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                max-height: 50vh;
+            }
+            article{
+                background-color: purple;
+                flex:4;
+            }
+            #ad2{
+                min-height: 70vh;
+                max-width: 10vw;
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+            #ad1{
+                min-height: 70vh;
+                max-width: 10vw;
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+            footer{
+                background-color: white;
+                flex:1;
+                text-align: center;
+            }
+            a:link{
+                text-decoration: none;
+                color:blueviolet;
+            }
+            a:visited{
+                color:blueviolet;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1 id="BIGHEAD">All about Justin Jefferson</h1>
+        </header>
+        <nav>
+            <table id="navtable">
+                <thead></thead>
+                <tbody>
+                    <tr>
+                        <td class="nav" id="hs"><h2><a href="website.html">Home</a></h2></td>
+                        <td class="nav" id="college"><h2><a href="college.html">College</a></h2></td>
+                        <td class="nav" id="nfl"><h2><a href="NFL.html">NFL</a></h2></td>
+                    </tr>
+                </tbody>
+            </table>
+        </nav>
+        <main>
+            <aside>
+                <img src="webimg/ad1.jpeg" id="ad1"/>
+            </aside>
+            <article>
+                <h2 class="home">High School JJ</h2>
+                <img src="webimg/JJHS.png" class="home" id="JJHS"/>
+                <p class="home">Justin Jefferson went to Destrehan High School and was one of their top recievers there.</p>
+                <p class="home">He came out of High School catching 45 passes for 8 TDS in his senior year.</p>
+                <p class="home">Although he showed a lot of talent, he was rated to be only a 3 star recruit and many colleges skipped on him.</p>
+                <p class="home">The only D1 offer that Jefferson got was from Louisiana State University(LSU) and he committed to go there at the end of his senior year in High School.</p>
+            </article>
+            <aside>
+                <img src="webimg/ad2.jpeg" id="ad2">
+            </aside>
+        </main>
+        <footer>
+            <p>Made by Siddarth and Aditya</p>
+            <p><a href="https://en.wikipedia.org/wiki/Justin_Jefferson">Sources</a></p>
+        </footer>
+    </body>
+</html>

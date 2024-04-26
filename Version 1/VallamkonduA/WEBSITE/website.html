@@ -18,19 +18,27 @@
                 background-color:plum;
                 min-height: 5vh;
                 flex:1;
-                display: flex;
             }
             .nav{
                 text-align: center;
+                border: 5px solid black;
             }
-            #HS{
-                flex:1;
+            tr{
+                display: flex;
             }
-            #NCAA{
-                flex:1;
+            table{
+                min-width:100%;
             }
-            #NFL{
-                flex:1;
+            #hs{
+                flex: 1;
+            }
+            #college{
+                flex: 1;
+                border-left: none;
+            }
+            #nfl{
+                flex: 1;
+                border-left: none;
             }
             main{
                 flex:10;
@@ -66,9 +74,16 @@
                 margin-bottom: auto;
             }
             footer{
-                background-color: black;
+                background-color: white;
                 flex:1;
                 text-align: center;
+            }
+            a:link{
+                text-decoration: none;
+                color:blueviolet;
+            }
+            a:visited{
+                color:blueviolet;
             }
         </style>
     </head>
@@ -77,9 +92,16 @@
             <h1 id="BIGHEAD">All about Justin Jefferson</h1>
         </header>
         <nav>
-            <h2 id="HS" class="nav">High School</h2>
-            <h2 id="NCAA" class="nav">College</h2>
-            <h2 id="NFL" class="nav">NFL</h2>
+            <table id="navtable">
+                <thead></thead>
+                <tbody>
+                    <tr>
+                        <td class="nav" id="hs"><h2><a href="hs.html">High School</a></h2></td>
+                        <td class="nav" id="college"><h2><a href="college.html">College</a></h2></td>
+                        <td class="nav" id="nfl"><h2><a href="NFL.html">NFL</a></h2></td>
+                    </tr>
+                </tbody>
+            </table>
         </nav>
         <main>
             <aside>
