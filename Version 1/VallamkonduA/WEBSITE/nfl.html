@@ -23,14 +23,30 @@
                 text-align: center;
                 border: 5px solid black;
             }
-            tr{
-                display: flex;
+            .nav:link{
+                text-decoration: none;
+                color:blueviolet;
             }
-            table{
-                min-width:100%;
+            .nav:visited{
+                color:blueviolet;
+            }
+            .nav:hover{
+                background-color: purple;
+                color:white;
+            }
+            ul{
+                display: flex;
+                min-width: 50%;
+                list-style-type: none;
+                margin-right:50px;
+            }
+            #home{
+                flex:1;
+                margin-left: none;
             }
             #hs{
                 flex: 1;
+                border-left: none;
             }
             #college{
                 flex: 1;
@@ -39,13 +55,14 @@
             #nfl{
                 flex: 1;
                 border-left: none;
+                background-color: rgb(193, 139, 252);
             }
             main{
                 flex:10;
                 display: flex;
             }
             aside{
-                background-color: gold;
+                background-color: purple;
                 flex:1;
                 max-width: 10vw;
             }
@@ -68,16 +85,12 @@
                 margin-bottom: auto;
             }
             footer{
-                background-color: plum;
+                background-color: black;
                 flex:1;
                 text-align: center;
             }
-            a:link{
-                text-decoration: none;
-                color:blueviolet;
-            }
-            a:visited{
-                color:blueviolet;
+            #pfooter,#afooter{
+                color:white; 
             }
             p,h2{
                 text-align: center;
@@ -95,16 +108,12 @@
             <h1 id="BIGHEAD">All about Justin Jefferson</h1>
         </header>
         <nav>
-            <table id="navtable">
-                <thead></thead>
-                <tbody>
-                    <tr>
-                        <td class="nav" id="hs"><h2><a href="hs.html">High School</a></h2></td>
-                        <td class="nav" id="college"><h2><a href="college.html">College</a></h2></td>
-                        <td class="nav" id="nfl"><h2><a href="website.html">Home</a></h2></td>
-                    </tr>
-                </tbody>
-            </table>
+            <ul>
+                <a href="website.html" class="nav" id="home"><li><h2>Home</h2></li></a>
+                <a href="hs.html" class="nav" id="hs"><li><h2>High School</h2></li></a>
+                <a href="college.html" class="nav" id="college"><li><h2>College</h2></li></a>
+                <a href="nfl.html" class="nav" id="nfl"><li><h2>NFL</h2></li></a> 
+            </ul>
         </nav>
         <main>
             <aside>
@@ -127,8 +136,8 @@
             </aside>
         </main>
         <footer>
-            <p>Made by Siddarth and Aditya</p>
-            <p><a href="https://en.wikipedia.org/wiki/Justin_Jefferson">Sources</a></p>
+            <p id="pfooter">Made by Siddarth and Aditya</p>
+            <p><a href="https://en.wikipedia.org/wiki/Justin_Jefferson" id="afooter">Sources</a></p>
         </footer>
     </body>
 </html>
