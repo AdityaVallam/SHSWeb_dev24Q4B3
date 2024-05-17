@@ -4,11 +4,43 @@
     </head>
 
     <body>
+        <form><p>
+            <input id="sum1" type="text"/>+<input id="sum2" type="text"/><input id="sumButton" type="button" value="Add" onClick="addFunct()"/><br>
+            <input id="prod1" type="text"/>x<input id="prod2" type="text"/><input id="prodButton" type="button" value="Multiply" onClick="prodFunct()"/><br>
+        </p></form>
+        <h3>Pythagorean Theorem</h3>
+        <form><p>
+            <label for="aVal">a=</label>
+            <input id="aVal" type="text"/><br>
+            <label for="bVal">b=</label>
+            <input id="bVal" type="text"/><br>
+            <input id="cFind" type="button" value="Find C" onClick="pythFunct()"/>
+        </p></form>
         <script>
-            let x=1, y;
-            alert(y);
-            alert(x+y);
-
+            function addFunct(){
+                const one = document.getElementById("sum1").value;
+                const two = document.getElementById("sum2").value;
+                let no1 = Number(one);
+                let no2 = Number(two);
+                document.write(no1+no2);
+            }
+            function prodFunct(){
+                const one = document.getElementById("prod1").value;
+                const two = document.getElementById("prod2").value;
+                let no1 = Number(one);
+                let no2 = Number(two);
+                document.write(no1*no2);
+            }
+            function pythFunct() {
+                const a = document.getElementById("aVal").value;
+                const b = document.getElementById("bVal").value;
+                let no1 = Number(a);
+                let no2 = Number(b); 
+                let pythA = no1 ** 2;
+                let pythB = no2 ** 2;
+                let hypotenuse = Math.sqrt(pythA + pythB);
+                document.write(hypotenuse);
+            }
         </script>
     </body>
 </html>

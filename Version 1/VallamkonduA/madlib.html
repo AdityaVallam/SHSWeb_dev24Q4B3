@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <form>
+            <label for="adj1">Adjective:</label>
+            <input id="adj1" type="text"/><br>
+            <label for="dotw1">Day of the Week:</label>
+            <input id="dotw1" type="text"/><br>
+            <label for="thi1">Thing:</label>
+            <input id="thi1" type="text"/><br>
+            <label for="city1">City:</label>
+            <input id="city1" type="text"/><br>
+            <label for="verb1">Verb:</label>
+            <input id="verb1" type="text"/><br>
+            <label for="adv1">Adverb:</label>
+            <input id="adv1" type="text"/><br>
+            <label for="fam1">Family Member:</label>
+            <input id="fam1" type="text"/><br>
+            <label for="thi2">Thing:</label>
+            <input id="thi2" type="text"/><br>
+            <label for="adj2">Adjective:</label>
+            <input id="adj2" type="text"/><br>
+            <label for="food1">Food:</label>
+            <input id="food1" type="text"/><br>
+            <label for="pla1">Place:</label>
+            <input id="pla1" type="text"/><br>
+            <label for="name1">Name:</label>
+            <input id="name1" type="text"/><br>
+            <label for="plu1">Plural Thing:</label>
+            <input id="plu1" type="text"/><br>
+            <label for="thi3">Thing:</label>
+            <input id="thi3" type="text"/><br>
+            <label for="pas1">Past Tense Verb:</label>
+            <input id="pas1" type="text"/><br>
+            <label for="name2">Name:</label>
+            <input id="name2" type="text"/><br>
+            <label for="thi4">Thing:</label>
+            <input id="thi4" type="text"/><br>
+            <label for="adj3">Adjective:</label>
+            <input id="adj3" type="text"/><br>
+            <label for="pas2">Past Tense Verb:</label>
+            <input id="pas2" type="text"/><br>
+            <label for="dotw2">Day of the Week:</label>
+            <input id="dotw2" type="text"/><br>
+            <input id="submit" type="button" value="Submit" onClick="madlib()"/>
+        </form>
+        <p id="output"></p>
+        <script>
+            function madlib(){
+                let adj1 = document.getElementById("adj1").value;
+                let dotw1 = document.getElementById("dotw1").value;
+                let thi1 = document.getElementById("thi1").value;
+                let city1 = document.getElementById("city1").value;
+                let verb1 = document.getElementById("verb1").value;
+                let adv1 = document.getElementById("adv1").value;
+                let fam1 = document.getElementById("fam1").value;
+                let thi2 = document.getElementById("thi2").value;
+                let adj2 = document.getElementById("adj2").value;
+                let food1 = document.getElementById("food1").value;
+                let pla1 = document.getElementById("pla1").value;
+                let name1 = document.getElementById("name1").value;
+                let plu1 = document.getElementById("plu1").value;
+                let thi3 = document.getElementById("thi3").value;
+                let pas1 = document.getElementById("pas1").value;
+                let name2 = document.getElementById("name2").value;
+                let thi4 = document.getElementById("thi4").value;
+                let adj3 = document.getElementById("adj3").value;
+                let pas2 = document.getElementById("pas2").value;
+                let dotw2 = document.getElementById("dotw2").value;
+
+                document.getElementById("output").innerHTML = 
+                    "On a " + adj1 + " " + dotw1 + " morning, I realized that I had to go to a " + thi1 + " in " + city1 + " because I had to " + verb1 + ". I had to travel there by " 
+                    + adv1 + " driving. While I never wanted to go, my " + fam1 + " forced me to. " + 
+                    "While I was there, I made new " + thi2 + " and ate a really" + adj2 + food1 + ". On the way to the " + pla1 + 
+                    ", I was next to " + name1 + " and we talked about " + plu1 + ". After I got home, I watched a " + thi3 + " and " + pas1 + "with " + 
+                    name2 + ". Overall, the " + thi4 + "was " + adj3 + " and I " + pas2 + " a lot. See you on " + dotw2 + ".";
+            }
+        </script>
+    </body>
+</html>

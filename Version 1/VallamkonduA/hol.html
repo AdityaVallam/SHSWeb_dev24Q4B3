@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                background-color: black;
+            }
+            form{
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+            }
+            .text{
+                color: white;
+                text-align: center;
+            }
+            #submit,#guess,#reset{
+                color:black;
+            }
+            #status{
+                color:white;
+                text-align: center;
+            }
+        </style>
+        <script>
+            let min = 1;
+            let max = 100;
+            let answer = Math.floor(Math.random() * (max - min + 1)) + min;
+            function restart() {
+                document.getElementById("guess").value = '';
+            }
+            function checkGuess() {
+                let guessInput = document.getElementById("guess");
+                let guess = Number(guessInput.value);
+
+                if (isNaN(guess)) {
+                    document.getElementById("status").innerHTML = "Please enter a valid number.";
+                } 
+                else if (guess < answer) {
+                    document.getElementById("status").innerHTML = "The number is higher";
+                } 
+                else if (guess > answer) {
+                    document.getElementById("status").innerHTML = "The number is lower.";
+                } 
+                else {
+                    document.getElementById("status").innerHTML = "Sucess!";
+                }
+                guessInput.value = '';
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1 class="text">Higher or Lower</h1>
+        </header>
+        <main>
+            <p class="text">Guess a number between 1 or 100:</p>
+            <form>
+                <input id="guess" type="text" class="text"/>
+                <input id="submit" type="button" value="Submit" class="text" onClick="checkGuess()"/>
+                <input id="reset" type="button" value="Reset" class="text" onClick="restart()"/>
+            </form>
+        </main>
+        <article>
+            <h1 id="status">
+            </h1>
+        </article>
+    </body>
+</html>
