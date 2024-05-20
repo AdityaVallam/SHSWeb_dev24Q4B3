@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function findDistance(xOne, yOne, xTwo, yTwo) {
+                let xdif = xTwo - xOne;
+                let ydif = yTwo - yOne;
+                let distance = Math.sqrt(xdif ** 2 + ydif ** 2);
+                alert("Distance: " + distance);
+            }
+
+            function findMidPoint(xOne, yOne, xTwo, yTwo){
+                let xtot = (xOne + xTwo)/2;
+                let ytot = (yOne + yTwo)/2;
+                alert("Midpoint: " + "(" + xtot + ", " + ytot + ")");
+            }
+
+            function calculateVal(outputType){
+                //get the values from your inputs and store them
+                let x1 = document.getElementById("x_1").value;
+                x1 = Number(x1);
+                let x2 = document.getElementById("x_2").value;
+                x2 = Number(x2);
+                let y1 = document.getElementById("y_1").value;
+                y1 = Number(y1);
+                let y2 = document.getElementById("y_2").value;
+                y2 = Number(y2);
+                if(outputType == 'distance'){
+                    findDistance(x1, y1, x2, y2);
+                } else if (outputType == 'midpoint'){
+                    //call findMidPoint with your values
+                    findMidPoint(x1, y1, x2, y2);
+                }
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <main>
+            x<sub>1</sub>:
+            <input id="x_1" type="text"/><br>
+            y<sub>1</sub>:
+            <input id="y_1" type="text" /><br>
+            x<sub>2</sub>:
+            <input id="x_2" type="text"/><br>
+            y<sub>2</sub>:
+            <input id="y_2" type="text" /><br>
+            <input onclick="calculateVal('distance')" type="button" value="Find Distance" />
+            <input onclick="calculateVal('midpoint')" type="button" value="Find Midpoint" />
+
+            
+        </main>
+    </body>
+</html>

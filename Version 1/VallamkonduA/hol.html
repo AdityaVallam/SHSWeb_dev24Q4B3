@@ -18,7 +18,7 @@
             #submit,#guess,#reset{
                 color:black;
             }
-            #status{
+            #status,#guesses{
                 color:white;
                 text-align: center;
             }
@@ -28,23 +28,34 @@
             let max = 100;
             let answer = Math.floor(Math.random() * (max - min + 1)) + min;
             function restart() {
+                answer = Math.floor(Math.random() * (max - min + 1)) + min;
                 document.getElementById("guess").value = '';
+                document.getElementById("status").innerHTML = '';
+                document.getElementById("guesses").innerHTML = 'Guess: ';
             }
             function checkGuess() {
                 let guessInput = document.getElementById("guess");
                 let guess = Number(guessInput.value);
+                let guesses = document.getElementById("guesses");
+                let guessSpan = document.createElement('span');
 
                 if (isNaN(guess)) {
-                    document.getElementById("status").innerHTML = "Please enter a valid number.";
-                } 
-                else if (guess < answer) {
+                    document.getElementById("status").innerHTML = "Please enter a valid number";
+                } else if (guess < answer) {
                     document.getElementById("status").innerHTML = "The number is higher";
-                } 
-                else if (guess > answer) {
+                    guessSpan.style.color = 'red';
+                    guessSpan.innerHTML = guess + ", ";
+                    guesses.appendChild(guessSpan);
+                } else if (guess > answer) {
                     document.getElementById("status").innerHTML = "The number is lower.";
-                } 
-                else {
-                    document.getElementById("status").innerHTML = "Sucess!";
+                    guessSpan.style.color = 'white';
+                    guessSpan.innerHTML = guess + ", ";
+                    guesses.appendChild(guessSpan);
+                } else {
+                    document.getElementById("status").innerHTML = "Success!";
+                    guessSpan.style.color = 'green';
+                    guessSpan.innerHTML = guess + ", ";
+                    guesses.appendChild(guessSpan);
                 }
                 guessInput.value = '';
             }
@@ -55,7 +66,7 @@
             <h1 class="text">Higher or Lower</h1>
         </header>
         <main>
-            <p class="text">Guess a number between 1 or 100:</p>
+            <p class="text">Guess a number between 1 and 100:</p>
             <form>
                 <input id="guess" type="text" class="text"/>
                 <input id="submit" type="button" value="Submit" class="text" onClick="checkGuess()"/>
@@ -63,8 +74,8 @@
             </form>
         </main>
         <article>
-            <h1 id="status">
-            </h1>
+            <h1 id="status"></h1>
+            <h1 id="guesses">Guess: </h1>
         </article>
     </body>
 </html>
