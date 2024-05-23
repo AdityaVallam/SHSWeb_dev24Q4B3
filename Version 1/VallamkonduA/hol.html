@@ -6,21 +6,35 @@
                 background-color: black;
             }
             form{
-                display:flex;
-                justify-content: center;
-                align-items: center;
+                text-align: center;
                 margin: 0;
             }
             .text{
                 color: white;
                 text-align: center;
             }
-            #submit,#guess,#reset{
-                color:black;
+            #submit, #guess, #reset{
+                color: black;
+                margin: 5px;
             }
-            #status,#guesses{
-                color:white;
+            #status, #guesses, #badInput, .commas{
+                color: white;
                 text-align: center;
+            }
+            .higher{
+                color: red;
+            }
+            .lower{
+                color: blue;
+            }
+            .success{
+                color: green;
+            }
+            .invis{
+                display: none;
+            }
+            .there{
+                display: block;
             }
         </style>
         <script>
@@ -31,31 +45,42 @@
                 answer = Math.floor(Math.random() * (max - min + 1)) + min;
                 document.getElementById("guess").value = '';
                 document.getElementById("status").innerHTML = '';
-                document.getElementById("guesses").innerHTML = 'Guess: ';
+                document.getElementById("guesses").innerHTML = 'Previous Guesses: ';
+                badInput.className = "invis";
             }
+
             function checkGuess() {
                 let guessInput = document.getElementById("guess");
                 let guess = Number(guessInput.value);
                 let guesses = document.getElementById("guesses");
                 let guessSpan = document.createElement('span');
-
+                let status = document.getElementById("status");
+                let statWord = "";
+                
                 if (isNaN(guess)) {
-                    document.getElementById("status").innerHTML = "Please enter a valid number";
+                    badInput.className = "there";
+                    badInput.innerHTML = "Please enter a valid number";
                 } else if (guess < answer) {
-                    document.getElementById("status").innerHTML = "The number is higher";
-                    guessSpan.style.color = 'red';
-                    guessSpan.innerHTML = guess + ", ";
+                    status.innerHTML = `Your guess of ${guess} is <span class="lower">lower</span> than the number`;
+                    status.className = "lower";
+                    guessSpan.className = "lower";
+                    guessSpan.innerHTML = guess + "<span class = 'commas'>, </span>";;
                     guesses.appendChild(guessSpan);
+                    badInput.className = "invis";
                 } else if (guess > answer) {
-                    document.getElementById("status").innerHTML = "The number is lower.";
-                    guessSpan.style.color = 'white';
-                    guessSpan.innerHTML = guess + ", ";
+                    status.innerHTML = `Your guess of ${guess} is <span class="higher">higher</span> than the number`;
+                    status.className = "higher";
+                    guessSpan.className = "higher";
+                    guessSpan.innerHTML = guess + "<span class = 'commas'>, </span>";
                     guesses.appendChild(guessSpan);
+                    badInput.className = "invis";
                 } else {
-                    document.getElementById("status").innerHTML = "Success!";
-                    guessSpan.style.color = 'green';
-                    guessSpan.innerHTML = guess + ", ";
+                    status.innerHTML = "Success!";
+                    status.className = "success";
+                    guessSpan.className = "success";
+                    guessSpan.innerHTML = guess;
                     guesses.appendChild(guessSpan);
+                    badInput.className = "invis";
                 }
                 guessInput.value = '';
             }
@@ -66,16 +91,17 @@
             <h1 class="text">Higher or Lower</h1>
         </header>
         <main>
-            <p class="text">Guess a number between 1 and 100:</p>
+            <h2 class="text">Guess a number between 1 and 100:</h2>
             <form>
                 <input id="guess" type="text" class="text"/>
-                <input id="submit" type="button" value="Submit" class="text" onClick="checkGuess()"/>
-                <input id="reset" type="button" value="Reset" class="text" onClick="restart()"/>
+                <input id="submit" type="button" value="Submit" class="text" onclick="checkGuess()"/>
+                <input id="reset" type="button" value="Reset" class="text" onclick="restart()"/>
             </form>
         </main>
         <article>
-            <h1 id="status"></h1>
-            <h1 id="guesses">Guess: </h1>
+            <h2 id="badInput" class="invis"></h2>
+            <h2 id="status"></h2>
+            <h2 id="guesses">Previous Guesses: </h2>
         </article>
     </body>
 </html>

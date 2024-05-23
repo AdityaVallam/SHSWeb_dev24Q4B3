@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            let rand = Math.floor(Math.random()*4000)+1000;
+            let currentTime, stopTime;
+
+            function startTimer(){
+                document.getElementById("stopButton").className = "red";
+                setTimeout(reactTimer, rand);
+            }
+
+            function reactTimer(){
+                document.getElementById("stopButton").className = "green";
+                currentTime = new Date();
+            }
+            
+            function stopTimer(){
+                let timeDiff;
+                stopTime = new Date();
+                timeDiff = stopTime-currentTime;
+                timeDiff /= 1000;
+                document.getElementById("stopButton").className = "";
+                document.getElementById("result").innerHTML += "Your reaction time is " + timeDiff + " seconds.<br>";
+                return timeDiff;
+            }
+        </script>
+        <style>
+            body{
+                text-align: center;
+            }
+            .red{
+                background-color: red;
+            }   
+            .green{
+                background-color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h1>Test Your Reaction Time</h1>
+            <input type="button" value="Go!" onClick="startTimer()">
+            <input id="stopButton" type="button" value="Stop" onClick="stopTimer()">
+            <p>Press Stop when the Button turns green</p><br><br>
+            <div id="result"></div>
+        </main>
+    </body>
+</html>
