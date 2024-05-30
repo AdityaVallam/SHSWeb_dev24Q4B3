@@ -2,6 +2,12 @@
 <html>
     <head>
         <style>
+            #homelink:hover{
+                color: gray;
+            }
+            header{
+                text-align: center;
+            }
             body{
                 background-color: black;
             }
@@ -36,6 +42,49 @@
             .there{
                 display: block;
             }
+            body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+        header {
+            background-color: #333;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .game-link {
+            background-color: #444;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            text-align: center;
+            width: 200px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+        }
+        .game-link:hover {
+            background-color: #555;
+        }
+        #hol{
+            flex:1;
+        }
+        #rxn{
+            flex:1;
+        }
         </style>
         <script>
             let min = 1;
@@ -87,6 +136,13 @@
         </script>
     </head>
     <body>
+        <header>
+            <h1>Welcome to the Game Center</h1>
+        </header>
+        <main>
+            <a href="dynamicfinal.html" class="game-link" id="hol">Home Page</a>
+            <a href="rxntime.html" class="game-link" id="rxn">Reaction Time</a>
+        </main>
         <header>
             <h1 class="text">Higher or Lower</h1>
         </header>

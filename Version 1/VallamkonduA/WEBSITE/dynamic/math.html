@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quiz</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        main {
+            text-align: center;
+        }
+        input[type="number"] {
+            margin: 10px;
+            padding: 5px;
+            font-size: 16px;
+        }
+        .button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: gray;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: white;
+        }
+        #score {
+            color: white;
+        }
+    </style>
+    <script>
+        let currentAnswer;
+        let numer = 0;
+        let denom = 0;
+
+        function generateProblem() {
+            const num1 = Math.floor(Math.random() * 10) + 1;
+            const num2 = Math.floor(Math.random() * 10) + 1;
+            const operators = ['+', '-', '*', '/'];
+            const operator = operators[Math.floor(Math.random() * operators.length)];
+
+            let question;
+            switch(operator) {
+                case '+':
+                    question = `${num1} + ${num2}`;
+                    currentAnswer = num1 + num2;
+                    break;
+                case '-':
+                    question = `${num1} - ${num2}`;
+                    currentAnswer = num1 - num2;
+                    break;
+                case '*':
+                    question = `${num1} * ${num2}`;
+                    currentAnswer = num1 * num2;
+                    break;
+                case '/':
+                    question = `${num1 * num2} / ${num1}`;
+                    currentAnswer = num2;
+                    break;
+            }
+
+            document.getElementById('question').innerHTML = question;
+            document.getElementById('answer').value = '';
+        }
+
+        function checkAnswer() {
+            const userAnswer = Number(document.getElementById('answer').value);
+            const result = document.getElementById('result');
+
+            if (userAnswer === currentAnswer) {
+                result.innerHTML = 'Correct!';
+                result.style.color = 'green';
+                numer += 1;
+            } else {
+                result.innerHTML = 'Incorrect!';
+                result.style.color = 'red';
+            }
+            denom += 1;
+            document.getElementById('score').innerHTML = `Score: ${numer}/${denom}`;
+            document.getElementById('answer').value = '';
+            generateProblem();
+        }
+
+        window.onload = generateProblem;
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Math Quiz</h1>
+    </header>
+    <main>
+        <div id="question" class="text"></div>
+        <input id="answer" type="number" class="text"/>
+        <button class="button" onclick="checkAnswer()">Submit</button>
+        <div id="result" class="text"></div>
+        <div class="text" id="score">Score: 0/0</div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reaction Time Game</title>
+    <style>
+        .red{
+            background-color: red;
+        }
+        .green{
+            background-color: green;
+        }
+        a{
+            color:white;
+        }
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+        }
+        main {
+            text-align: center;
+        }
+        #startButton:hover{
+            background-color: gray;
+        }
+        #startButton, #stopButton {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            color: black;
+            cursor: pointer;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+        header {
+            background-color: #333;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .game-link {
+            background-color: #444;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            text-align: center;
+            width: 200px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+        }
+        .game-link:hover {
+            background-color: #555;
+        }
+        #hol{
+            flex:1;
+        }
+        #rxn{
+            flex:1;
+        }
+    </style>
+    <script>
+        let rand = Math.floor(Math.random()*4000)+1000;
+            let currentTime, stopTime;
+
+            function startTimer(){
+                document.getElementById("stopButton").className = "red";
+                setTimeout(reactTimer, rand);
+            }
+
+            function reactTimer(){
+                document.getElementById("stopButton").className = "green";
+                currentTime = new Date();
+            }
+            
+            function stopTimer(){
+                let timeDiff;
+                stopTime = new Date();
+                timeDiff = stopTime-currentTime;
+                timeDiff /= 1000;
+                document.getElementById("stopButton").className = "";
+                document.getElementById("result").innerHTML += "Your reaction time is " + timeDiff + " seconds.<br>";
+                return timeDiff;
+            }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Game Center</h1>
+    </header>
+    <main>
+        <a href="hol.html" class="game-link" id="hol">Higher or Lower</a>
+        <a href="dynamicfinal.html" class="game-link" id="hol">Home Page</a>
+    </main>
+    <header id="head">
+        <h1>Reaction Time Game</h1>
+    </header>
+    <main>
+        <button id="startButton" onclick="startTimer()">Start</button>
+        <button id="stopButton"onclick="stopTimer()">Stop</button>
+        <p id="result"></p>
+    </main>
+</body>
+</html>
