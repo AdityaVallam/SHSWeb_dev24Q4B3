@@ -30,10 +30,10 @@
         main {
             text-align: center;
         }
-        #startButton:hover{
+        #startButton:hover,#reset:hover{
             background-color: gray;
         }
-        #startButton, #stopButton {
+        #startButton, #stopButton, #reset{
             display: inline-block;
             margin: 10px;
             padding: 10px 20px;
@@ -78,6 +78,7 @@
         }
         .game-link:hover {
             background-color: #555;
+            color: white;
         }
         #hol{
             flex:1;
@@ -88,44 +89,46 @@
     </style>
     <script>
         let rand = Math.floor(Math.random()*4000)+1000;
-            let currentTime, stopTime;
+        let currentTime, stopTime;
 
-            function startTimer(){
-                document.getElementById("stopButton").className = "red";
-                setTimeout(reactTimer, rand);
-            }
+        function startTimer(){
+            document.getElementById("stopButton").className = "red";
+            setTimeout(reactTimer, rand);
+        }
 
-            function reactTimer(){
-                document.getElementById("stopButton").className = "green";
-                currentTime = new Date();
-            }
+        function reactTimer(){
+            document.getElementById("stopButton").className = "green";
+            currentTime = new Date();
+        }
             
-            function stopTimer(){
-                let timeDiff;
-                stopTime = new Date();
-                timeDiff = stopTime-currentTime;
-                timeDiff /= 1000;
-                document.getElementById("stopButton").className = "";
-                document.getElementById("result").innerHTML += "Your reaction time is " + timeDiff + " seconds.<br>";
-                return timeDiff;
-            }
+        function stopTimer(){
+            let timeDiff;
+            stopTime = new Date();
+            timeDiff = stopTime-currentTime;
+            timeDiff /= 1000;
+            document.getElementById("stopButton").className = "";
+            document.getElementById("result").innerHTML += "<br>Your reaction time is " + timeDiff + " seconds.<br>";
+            return timeDiff;
+        }
+        function restart(){
+            document.getElementById("result").innerHTML = '';
+        }
     </script>
 </head>
 <body>
-    <header>
-        <h1>Welcome to the Game Center</h1>
+    <header id="head">
+        <h1>Reaction Time Game</h1><br>
     </header>
     <main>
         <a href="hol.html" class="game-link" id="hol">Higher or Lower</a>
         <a href="dynamicfinal.html" class="game-link" id="hol">Home Page</a>
+        <a href="qmath.html" class="game-link" id="math">Quick Maths</a>
     </main>
-    <header id="head">
-        <h1>Reaction Time Game</h1>
-    </header>
     <main>
         <button id="startButton" onclick="startTimer()">Start</button>
-        <button id="stopButton"onclick="stopTimer()">Stop</button>
-        <p id="result"></p>
+        <button id="stopButton" onclick="stopTimer()">Stop</button>
+        <button id="reset" onclick="restart()">Reset</button>
     </main>
+    <div id="result"></div>
 </body>
 </html>
